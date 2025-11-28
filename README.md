@@ -26,3 +26,4 @@ The perception module rely on 2 different datasets.
 - the first one is a traffic sign classification dataset that can be downloaded from this repository directly.
 - the second one is a CARLA detection dataset containing 8 classes, from cars to traffic lights. It is located at https://app.roboflow.com/carla-test/modified-carla/3
 
+# cav-class
