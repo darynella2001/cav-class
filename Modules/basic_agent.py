@@ -17,8 +17,10 @@ from global_route_planner import GlobalRoutePlanner
 from misc import (get_speed, is_within_distance,
                                get_trafficlight_trigger_location)
 
-from agents.tools.hints import ObstacleDetectionResult, TrafficLightDetectionResult
-
+# from agents.tools.hints import ObstacleDetectionResult, TrafficLightDetectionResult
+from collections import namedtuple
+ObstacleDetectionResult = namedtuple("ObstacleDetectionResult", ["result", "vehicle", "distance"])
+TrafficLightDetectionResult = namedtuple("TrafficLightDetectionResult", ["result", "traffic_light"])
 
 class BasicAgent:
     """
