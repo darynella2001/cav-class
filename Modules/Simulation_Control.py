@@ -58,9 +58,9 @@ except IndexError:
 import carla
 from carla import ColorConverter as cc
 
-from behavior_agent import BehaviorAgent  # pylint: disable=import-error
+# from behavior_agent import BehaviorAgent  # pylint: disable=import-error
 from basic_agent import BasicAgent  # pylint: disable=import-error
-from agents.navigation.constant_velocity_agent import ConstantVelocityAgent  # pylint: disable=import-error
+# from agents.navigation.constant_velocity_agent import ConstantVelocityAgent  # pylint: disable=import-error
 
 
 # ==============================================================================
@@ -747,13 +747,13 @@ def game_loop(args):
             agent = BasicAgent(world.player, target_speed = args.speed)
             # agent.follow_speed_limiwwts(True)
         elif args.agent == "Constant":
-            agent = ConstantVelocityAgent(world.player, args.speed)
+            agent = BasicAgent(world.player, args.speed)
             ground_loc = world.world.ground_projection(world.player.get_location(), 5)
             if ground_loc:
                 world.player.set_location(ground_loc.location + carla.Location(z=0.01))
             agent.follow_speed_limits(True)
         elif args.agent == "Behavior":
-            agent = BehaviorAgent(world.player, behavior=args.behavior)
+            agent = BasicAgent(world.player, behavior=args.behavior)
 
         # Set the agent destination
         spawn_points = world.map.get_spawn_points()

@@ -2,7 +2,7 @@ from collections import deque
 import math
 import numpy as np
 import carla
-from agents.tools.misc import get_speed   #don't forget to put the Module folder in PythonAPI for testing
+from misc import get_speed   #don't forget to put the Module folder in PythonAPI for testing
  
  
 class PIDLongitudinalController():

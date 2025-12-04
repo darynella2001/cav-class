@@ -14,7 +14,7 @@ from shapely.geometry import Polygon
 
 from local_planner import LocalPlanner, RoadOption
 from global_route_planner import GlobalRoutePlanner
-from agents.tools.misc import (get_speed, is_within_distance,
+from misc import (get_speed, is_within_distance,
                                get_trafficlight_trigger_location)
 
 from agents.tools.hints import ObstacleDetectionResult, TrafficLightDetectionResult
