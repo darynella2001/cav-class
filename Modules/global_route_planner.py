@@ -327,6 +327,7 @@ class GlobalRoutePlanner(object):
             _, __, curnode, dist, parent = pop(queue)
 
             if curnode == target:
+                explored[curnode] = parent
                 path = [curnode]
                 node = parent
                 while node is not None:
@@ -342,8 +343,8 @@ class GlobalRoutePlanner(object):
                     continue
 
                 # Skip bad paths that were enqueued before finding a better one
-                qcost, h = enqueued[curnode]
-                if qcost < dist:
+                qcost, h = enqueued.get(curnode, (None, None))
+                if qcost is not None and qcost < dist:
                     continue
 
             explored[curnode] = parent
@@ -353,7 +354,7 @@ class GlobalRoutePlanner(object):
                 if cost is None:
                     continue
                 ncost = dist + cost
-                ##TODO## done:)
+                ##TODO## done :)
                 if neighbor in enqueued:
                     qcost, h = enqueued[neighbor]
                     if qcost <= ncost:
